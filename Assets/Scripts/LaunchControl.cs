@@ -29,7 +29,9 @@ public class LaunchControl : MonoBehaviour
         if (canLaunch)
         {
             pltd.transform.position = launchPoint;
-            
+            pltd.isDisabled = true;
+
+
             if (Input.GetButtonUp("Fire1"))
             {
                 FireAsteroid();
@@ -70,6 +72,7 @@ public class LaunchControl : MonoBehaviour
         Planetoid launched = Instantiate(asteroids[rnd], position, Quaternion.identity).GetComponent<Planetoid>();
         launched.velocity = Vector2.ClampMagnitude(angle, 0.2f);*/
 
+        pltd.isDisabled = false;
         canLaunch = false;
     }
 

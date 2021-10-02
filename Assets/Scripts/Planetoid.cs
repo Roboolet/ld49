@@ -10,6 +10,11 @@ public class Planetoid : MonoBehaviour
     /// </summary>
     public bool isStatic;
 
+    /// <summary>
+    /// Whether this planetoid should interfere with the world.
+    /// </summary>
+    public bool isDisabled;
+
     [Header("Properties")]
     /// <summary>
     /// Mass of the planetoid.
@@ -58,19 +63,12 @@ public class Planetoid : MonoBehaviour
 
         LineRenderer ren = lineInstance.GetComponent<LineRenderer>();
         ren.positionCount = PlanetoidManager.predictions[ID].Length / 4;
-        ren.colorGradient = new Gradient
-        {
-            colorKeys = new GradientColorKey[]
-            {
-                new GradientColorKey(Color.white, 0.45f),
-                new GradientColorKey(Color.red, 0.5f),
-                new GradientColorKey(Color.white, 0.55f),
-                new GradientColorKey(Color.clear, 1.0f)
-            }
-        };
 
+        // Set the positions on the line:
         for (int i = 0; i < PlanetoidManager.predictions[ID].Length; i += 4)
+        {
             ren.SetPosition(i / 4, PlanetoidManager.predictions[ID][i]);
+        }
     }
 
     private void OnDrawGizmos()
