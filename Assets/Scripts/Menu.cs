@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
     GameObject cam;
     [SerializeField] Transform screenCenter;
 
-    bool paused;
+    public static bool paused;
 
     private void Awake()
     {

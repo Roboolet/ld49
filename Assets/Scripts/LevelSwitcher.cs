@@ -28,29 +28,28 @@ public class LevelSwitcher : MonoBehaviour
         //debug
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            LoadLevel(counter);
+            NextLevel();
             counter++;
         }
 
     }
 
-    public void LoadLevel(int i)
+    public void LoadLevel(int i, Vector2 center)
     {
-        if (i >= levels.Length) LoadLevel(GenerateLevel()); else LoadLevel(levels[i]);
+        LoadLevel(levels[i], center);
     }
 
-    void LoadLevel(LevelData data)
+    void LoadLevel(LevelData data, Vector2 center)
     {
         //Initialize
         StartCoroutine(CleanupScene(currentSceneObjects));
         currentSceneObjects = new List<GameObject>();
 
-        //Transition
-        screenCenter.position += Vector3.right * 100;
-        LeanTween.moveX(cam, screenCenter.position.x, 2.5f).setEase(LeanTweenType.easeInOutExpo);
+        //Transition        
+        LeanTween.moveX(cam, center.x, 2.5f).setEase(LeanTweenType.easeInOutExpo);
 
         //Adding objects
-        Vector2 anchor = (Vector2)screenCenter.position + data.sunOffset;
+        Vector2 anchor = center + data.sunOffset;
         currentSceneObjects.Add(Instantiate(sunPrefab, anchor, Quaternion.identity));
 
         for(int i = 0; i < data.planets.Length; i++)
@@ -67,6 +66,16 @@ public class LevelSwitcher : MonoBehaviour
         }
 
         PlanetoidManager.UpdateScene();
+    }
+
+    public void NextLevel()
+    {
+        if (!Menu.paused)
+        {
+            screenCenter.position += Vector3.right * 100;
+            LoadLevel(levelCurrent, screenCenter.position);
+            levelCurrent++;
+        }
     }
 
     LevelData GenerateLevel()
