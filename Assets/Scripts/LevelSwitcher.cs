@@ -49,15 +49,14 @@ public class LevelSwitcher : MonoBehaviour
         LeanTween.moveX(cam, center.x, 2.5f).setEase(LeanTweenType.easeInOutExpo);
 
         //Adding objects
-        Vector2 anchor = center + data.sunOffset;
-        currentSceneObjects.Add(Instantiate(sunPrefab, anchor, Quaternion.identity));
+        currentSceneObjects.Add(Instantiate(sunPrefab, center, Quaternion.identity));
 
         for(int i = 0; i < data.planets.Length; i++)
         {
             PlanetData d = data.planets[i];
             int rnd = Random.Range(0, planetPrefab.Length);
 
-            GameObject obj = Instantiate(planetPrefab[rnd], anchor + d.position, Quaternion.identity);
+            GameObject obj = Instantiate(planetPrefab[rnd], center + d.position, Quaternion.identity);
             Planetoid p = obj.GetComponent<Planetoid>();
             p.velocity = d.velocity;
             p.mass = d.mass;
@@ -97,7 +96,6 @@ public class LevelSwitcher : MonoBehaviour
 [System.Serializable]
 public struct LevelData
 {
-    public Vector2 sunOffset;
     public float sunRadius;
 
     public PlanetData[] planets;
