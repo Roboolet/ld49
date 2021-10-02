@@ -24,6 +24,9 @@ public static class PlanetoidPhysics
     /// <returns>The force to add to the velocity of the planetoid.</returns>
     public static Vector2 GetSceneForce(Planetoid p, params Planetoid[] px)
     {
+        // Clear out any destroyed planetoids.
+        px = px.Where(f => f != null).ToArray();
+
         Vector2 force = Vector2.zero;
 
         // Loop over all planets in the scene:
@@ -44,6 +47,9 @@ public static class PlanetoidPhysics
     /// <returns>The force to add to the velocity of the planetoid.</returns>
     public static Vector2 GetSceneForce(Vector2 p, float mass, int id, params Planetoid[] px)
     {
+        // Clear out any destroyed planetoids.
+        px = px.Where(f => f != null).ToArray();
+
         Vector2 force = Vector2.zero;
 
         // Loop over all planets in the scene:
@@ -65,6 +71,9 @@ public static class PlanetoidPhysics
     /// <returns>A prediction of the planetoids trajectory.</returns>
     public static Vector2[] PredictTrajectory(Planetoid p, int records, params Planetoid[] px)
     {
+        // Clear out any destroyed planetoids.
+        px = px.Where(f => f != null).ToArray();
+
         // Create the record:
         List<Vector2> record = new List<Vector2>();
 
@@ -91,6 +100,9 @@ public static class PlanetoidPhysics
     /// <returns>A prediction of the planetoids trajectories.</returns>
     public static Dictionary<int, Vector2[]> PredictTrajectory2x(int records, params Planetoid[] px)
     {
+        // Clear out any destroyed planetoids.
+        px = px.Where(f => f != null).ToArray();
+
         // Create the record:
         Dictionary<int, Vector2[]> record = new Dictionary<int, Vector2[]>();
 
