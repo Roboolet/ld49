@@ -31,7 +31,7 @@ public class PlanetoidManager : MonoBehaviour
             if (scene[i] != null)
                 scene[i].DrawTrajectory();
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSecondsRealtime(0.03f);
 
         yield return SlowUpdate();
     }
