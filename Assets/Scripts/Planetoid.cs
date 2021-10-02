@@ -52,7 +52,7 @@ public class Planetoid : MonoBehaviour
             return;
 
         if (lineInstance == null)
-            lineInstance = Instantiate(line, transform);
+            lineInstance = Instantiate(line);
 
         LineRenderer ren = lineInstance.GetComponent<LineRenderer>();
         ren.positionCount = PlanetoidManager.predictions[ID].Length / 4;
@@ -68,6 +68,14 @@ public class Planetoid : MonoBehaviour
             Gizmos.color = Color.white;
             for (int i = 0; i < PlanetoidManager.predictions[ID].Length - 4; i += 4)
                 Gizmos.DrawLine(PlanetoidManager.predictions[ID][i], PlanetoidManager.predictions[ID][i + 4]);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if(lineInstance != null)
+        {
+            Destroy(lineInstance);
         }
     }
 }
