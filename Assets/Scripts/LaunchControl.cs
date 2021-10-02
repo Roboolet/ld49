@@ -19,6 +19,9 @@ public class LaunchControl : MonoBehaviour
     {
         screenMiddle = new Vector2(Screen.width/2, Screen.height/2);
         NewTry();
+
+        var sh = psystem.shape;
+        sh.radius = distance;
     }
 
     private void Update()
