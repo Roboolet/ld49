@@ -6,6 +6,7 @@ public class LaunchControl : MonoBehaviour
 {
     [SerializeField] float distance;
     [SerializeField] GameObject asteroidPrefab;
+    [SerializeField] ParticleSystem psystem;
 
     Planetoid pltd;
 
@@ -34,7 +35,7 @@ public class LaunchControl : MonoBehaviour
             if (!Input.GetButton("Fire1"))
             {
                 launchPoint = CalculateLaunchPoint(Input.mousePosition);
-                pltd.velocity = Vector2.zero;
+                //pltd.velocity = Vector2.zero;
             }
 
             else
