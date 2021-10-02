@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Planetoid : MonoBehaviour
@@ -22,6 +21,7 @@ public class Planetoid : MonoBehaviour
     public Vector2 velocity;
 
     [SerializeField] private GameObject line;
+
     private GameObject lineInstance;
     private Planetoid[] scene;
 
@@ -34,11 +34,12 @@ public class Planetoid : MonoBehaviour
     {
         velocity += PlanetoidPhysics.GetSceneForce(this, scene);
         transform.position += (Vector3)velocity;
-
-        DrawTrajectory();
     }
 
-    private void DrawTrajectory()
+    /// <summary>
+    /// Draws the trajectory given by the PlanetoidManager.
+    /// </summary>
+    public void DrawTrajectory()
     {
         if (lineInstance == null)
             lineInstance = Instantiate(line, transform);
@@ -47,8 +48,6 @@ public class Planetoid : MonoBehaviour
         ren.positionCount = PlanetoidManager.predictions[ID].Length;
 
         for (int i = 0; i < PlanetoidManager.predictions[ID].Length; i++)
-        {
             ren.SetPosition(i, PlanetoidManager.predictions[ID][i]);
-        }
     }
 }
