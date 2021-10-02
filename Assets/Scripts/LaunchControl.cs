@@ -35,7 +35,6 @@ public class LaunchControl : MonoBehaviour
             {
                 launchPoint = CalculateLaunchPoint(Input.mousePosition);
                 pltd.velocity = Vector2.zero;
-                pltd.mass = 0;
             }
 
             else
@@ -67,7 +66,6 @@ public class LaunchControl : MonoBehaviour
         Planetoid launched = Instantiate(asteroids[rnd], position, Quaternion.identity).GetComponent<Planetoid>();
         launched.velocity = Vector2.ClampMagnitude(angle, 0.2f);*/
 
-        pltd.mass = 2500;
         canLaunch = false;
     }
 
