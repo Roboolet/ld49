@@ -1,9 +1,11 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlanetoidManager : MonoBehaviour
 {
-    public static Vector2[,] predictions;
+    public static Dictionary<int, Vector2[]> predictions;
+    [SerializeField] private int frames = 600;
 
     private Planetoid[] scene;
 
@@ -15,7 +17,7 @@ public class PlanetoidManager : MonoBehaviour
 
     private IEnumerator SlowUpdate()
     {
-        predictions = PlanetoidPhysics.PredictTrajectory2x(2400, scene);
+        predictions = PlanetoidPhysics.PredictTrajectory2x(frames, scene);
 
         yield return new WaitForSeconds(0.1f);
 

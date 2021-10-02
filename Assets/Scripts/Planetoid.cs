@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class Planetoid : MonoBehaviour
 {
-    [Header("Unique ID")]
-    /// This ID must be unqiue!
-    public int ID;
+    public int ID => gameObject.GetInstanceID();
 
     [Header("Properties")]
     /// <summary>
@@ -46,23 +44,11 @@ public class Planetoid : MonoBehaviour
             lineInstance = Instantiate(line, transform);
 
         LineRenderer ren = lineInstance.GetComponent<LineRenderer>();
-        ren.positionCount = PlanetoidManager.predictions.GetLength(1);
+        ren.positionCount = PlanetoidManager.predictions[ID].Length;
 
-        for (int i = 0; i < PlanetoidManager.predictions.GetLength(1); i++)
+        for (int i = 0; i < PlanetoidManager.predictions[ID].Length; i++)
         {
-            ren.SetPosition(i, PlanetoidManager.predictions[ID, i]);
+            ren.SetPosition(i, PlanetoidManager.predictions[ID][i]);
         }
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    if (Application.isPlaying)
-    //    {
-    //        for (int i = 0; i < PlanetoidManager.predictions.GetLength(1) - 1; i++)
-    //        {
-    //            Gizmos.color = Color.white;
-    //            Gizmos.DrawLine(PlanetoidManager.predictions[ID, i], PlanetoidManager.predictions[ID, i + 1]);
-    //        }
-    //    }
-    //}
 }

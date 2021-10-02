@@ -89,14 +89,15 @@ public static class PlanetoidPhysics
     /// <param name="records">The number of positions to record.</param>
     /// <param name="px">All the planetoids in the scene.</param>
     /// <returns>A prediction of the planetoids trajectories.</returns>
-    public static Vector2[,] PredictTrajectory2x(int records, params Planetoid[] px)
+    public static Dictionary<int, Vector2[]> PredictTrajectory2x(int records, params Planetoid[] px)
     {
         // Create the record:
-        Vector2[,] record = new Vector2[px.Length, records];
+        Dictionary<int, Vector2[]> record = new Dictionary<int, Vector2[]>();
 
         // Keep track of the velocity and position:
         Vector2[] velocities = px.Select(f => f.velocity).ToArray();
         Vector2[] positions = px.Select(f => f.position).ToArray();
+        record = px.ToDictionary(f => f.ID, f => new Vector2[records]);
 
         // Collect all the records:
         for (int i = 0; i < records; i++)
@@ -106,7 +107,7 @@ public static class PlanetoidPhysics
             {
                 px[j].velocity += GetSceneForce(px[j].position, px[j].mass, px[j].ID, px);
                 px[j].transform.position += (Vector3)px[j].velocity;
-                record[j, i] = px[j].position;
+                record[px[j].ID][i] = px[j].position;
             }
         }
 
