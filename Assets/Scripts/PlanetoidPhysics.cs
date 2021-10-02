@@ -10,11 +10,10 @@ public static class PlanetoidPhysics
     /// <summary>
     /// Get the magnitude of the force between two planetary bodies.
     /// </summary>
-    /// <param name="m1">The mass of the first body.</param>
     /// <param name="m2">The mass of the second body.</param>
     /// <param name="r">The distance between the two bodies.</param>
     /// <returns>The magnitude of the force between the two bodies.</returns>
-    public static float GetForceBetween(float m1, float m2, float r) => G * (m1 * m2 / Mathf.Pow(r, 2));
+    public static float GetForceBetween(float m2, float r) => G * (m2 / Mathf.Pow(r, 2));
 
     /// <summary>
     /// Get the force to apply to a planetoid based on the scene around it.
@@ -33,7 +32,7 @@ public static class PlanetoidPhysics
         foreach (Planetoid p2 in px)
         {
             if (p2.ID != p.ID) // If they're not the same planet, Add its force to the sum.
-                force += (p2.position - p.position).normalized * GetForceBetween(p.mass, p2.mass, Vector2.Distance(p2.position, p.position));
+                force += (p2.position - p.position).normalized * GetForceBetween(p2.mass, Vector2.Distance(p2.position, p.position));
         }
 
         return force;
@@ -56,7 +55,7 @@ public static class PlanetoidPhysics
         foreach (Planetoid p2 in px)
         {
             if (p2.ID != id && p2.position != p) // If they're not the same planet, Add its force to the sum.
-                force += (p2.position - p).normalized * GetForceBetween(mass, p2.mass, Vector2.Distance(p2.position, p));
+                force += (p2.position - p).normalized * GetForceBetween(p2.mass, Vector2.Distance(p2.position, p));
         }
 
         return force;

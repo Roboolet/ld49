@@ -61,10 +61,10 @@ public class Planetoid : MonoBehaviour
             lineInstance = Instantiate(line, transform);
 
         LineRenderer ren = lineInstance.GetComponent<LineRenderer>();
-        ren.positionCount = PlanetoidManager.predictions[ID].Length;
+        ren.positionCount = PlanetoidManager.predictions[ID].Length / 4;
 
-        for (int i = 0; i < PlanetoidManager.predictions[ID].Length; i++)
-            ren.SetPosition(i, PlanetoidManager.predictions[ID][i]);
+        for (int i = 0; i < PlanetoidManager.predictions[ID].Length; i += 4)
+            ren.SetPosition(i / 4, PlanetoidManager.predictions[ID][i]);
     }
 
     private void OnDrawGizmos()
@@ -72,8 +72,8 @@ public class Planetoid : MonoBehaviour
         if (Application.isPlaying == false && PlanetoidManager.predictions != null && PlanetoidManager.predictions.ContainsKey(ID))
         {
             Gizmos.color = Color.white;
-            for (int i = 0; i < PlanetoidManager.predictions[ID].Length - 1; i++)
-                Gizmos.DrawLine(PlanetoidManager.predictions[ID][i], PlanetoidManager.predictions[ID][i + 1]);
+            for (int i = 0; i < PlanetoidManager.predictions[ID].Length - 4; i += 4)
+                Gizmos.DrawLine(PlanetoidManager.predictions[ID][i], PlanetoidManager.predictions[ID][i + 4]);
         }
     }
 }
