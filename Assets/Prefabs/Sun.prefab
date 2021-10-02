@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6740708585030424392}
   - component: {fileID: 6740708585030424393}
+  - component: {fileID: 5088276282279524355}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6740708585030424438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 6740708586524020783}
   - {fileID: 6740708585221105174}
@@ -84,6 +85,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5088276282279524355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6740708585030424438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcf72d3574cf3d4d99f6a4284fb39c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStatic: 1
+  mass: 500
+  velocity: {x: 0, y: 0}
+  line: {fileID: 0}
 --- !u!1 &6740708585221105175
 GameObject:
   m_ObjectHideFlags: 0

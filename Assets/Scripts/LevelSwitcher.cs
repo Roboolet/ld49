@@ -59,7 +59,7 @@ public class LevelSwitcher : MonoBehaviour
             int rnd = Random.Range(0, planetPrefab.Length);
 
             GameObject obj = Instantiate(planetPrefab[rnd], anchor + d.position, Quaternion.identity);
-            //obj.GetComponent<Planetoid>().Launch(d.velocity);
+            obj.GetComponent<Planetoid>().velocity = d.velocity;
             currentSceneObjects.Add(obj);
         }
 

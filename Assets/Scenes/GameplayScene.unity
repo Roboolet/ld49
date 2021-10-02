@@ -321,16 +321,16 @@ MonoBehaviour:
     planets:
     - radius: 2
       position: {x: 0, y: 5}
-      velocity: {x: 5, y: 0}
-  - sunOffset: {x: 0, y: 4}
-    sunRadius: 9
+      velocity: {x: 0.08, y: 0}
+  - sunOffset: {x: 0, y: 0}
+    sunRadius: 10
     planets:
-    - radius: 1.5
-      position: {x: 1.5, y: 1.5}
-      velocity: {x: 2.5, y: -2.5}
-    - radius: 3
-      position: {x: 5, y: 0}
-      velocity: {x: 0, y: -4}
+    - radius: 2
+      position: {x: 0, y: 8}
+      velocity: {x: 0.08, y: 0}
+    - radius: 2
+      position: {x: 0, y: -4}
+      velocity: {x: 0.08, y: 0}
   screenCenter: {fileID: 388674264}
   sunPrefab: {fileID: 6740708585030424438, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
   planetPrefab:
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880f5858382088b42b643c3bc3b284d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frames: 600
+  frames: 300
 --- !u!4 &1754424240
 Transform:
   m_ObjectHideFlags: 0
