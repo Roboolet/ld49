@@ -28,7 +28,8 @@ public class PlanetoidManager : MonoBehaviour
 
         // Tell the scene to redraw the trajectories:
         for (int i = 0; i < scene.Length; i++)
-            scene[i].DrawTrajectory();
+            if (scene[i] != null)
+                scene[i].DrawTrajectory();
 
         yield return new WaitForSeconds(0.1f);
 

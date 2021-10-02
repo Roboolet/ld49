@@ -41,9 +41,6 @@ public class Planetoid : MonoBehaviour
     /// </summary>
     public void DrawTrajectory()
     {
-        if (gameObject == null)
-            return;
-
         if (lineInstance == null)
             lineInstance = Instantiate(line, transform);
 
