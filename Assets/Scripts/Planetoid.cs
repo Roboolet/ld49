@@ -4,6 +4,12 @@ public class Planetoid : MonoBehaviour
 {
     public int ID => gameObject.GetInstanceID();
 
+    [Header("Options")]
+    /// <summary>
+    /// Whether this planetoid is static.
+    /// </summary>
+    public bool isStatic;
+
     [Header("Properties")]
     /// <summary>
     /// Mass of the planetoid.
@@ -32,8 +38,11 @@ public class Planetoid : MonoBehaviour
 
     private void FixedUpdate()
     {
-        velocity += PlanetoidPhysics.GetSceneForce(this, scene);
-        transform.position += (Vector3)velocity;
+        if (!isStatic)
+        {
+            velocity += PlanetoidPhysics.GetSceneForce(this, scene);
+            transform.position += (Vector3)velocity;
+        }
     }
 
     /// <summary>
@@ -41,6 +50,13 @@ public class Planetoid : MonoBehaviour
     /// </summary>
     public void DrawTrajectory()
     {
+        // Destroy the line if planetoid is static.
+        if (isStatic && lineInstance != null)
+            Destroy(lineInstance);
+
+        if (isStatic)
+            return;
+
         if (lineInstance == null)
             lineInstance = Instantiate(line, transform);
 

@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dcf72d3574cf3d4d99f6a4284fb39c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 1
+  isStatic: 0
   mass: 100
   velocity: {x: 0, y: -0.02}
   line: {fileID: 3380079581997566063, guid: 52aead0b29f027143a82211f317e993d, type: 3}
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dcf72d3574cf3d4d99f6a4284fb39c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
+  isStatic: 1
   mass: 100
   velocity: {x: 0, y: 0.02}
   line: {fileID: 3380079581997566063, guid: 52aead0b29f027143a82211f317e993d, type: 3}

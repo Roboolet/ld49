@@ -117,9 +117,12 @@ public static class PlanetoidPhysics
             // Loop over all planets in the scene:
             for (int j = 0; j < px.Length; j++)
             {
-                px[j].velocity += GetSceneForce(px[j].position, px[j].mass, px[j].ID, px);
-                px[j].transform.position += (Vector3)px[j].velocity;
-                record[px[j].ID][i] = px[j].position;
+                if (px[j].isStatic == false)
+                {
+                    px[j].velocity += GetSceneForce(px[j].position, px[j].mass, px[j].ID, px);
+                    px[j].transform.position += (Vector3)px[j].velocity;
+                    record[px[j].ID][i] = px[j].position;
+                }
             }
         }
 
