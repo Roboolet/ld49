@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelSwitcher : MonoBehaviour
 {
     [SerializeField] LevelData[] levels;
+    [SerializeField] Transform screenCenter;
 
     [Header("Prefabs")]
     [SerializeField] GameObject sunPrefab;
@@ -14,7 +15,6 @@ public class LevelSwitcher : MonoBehaviour
 
     GameObject cam;
 
-    Vector3 screenCenter;
     int levelCurrent;
     int counter;
 
@@ -46,11 +46,11 @@ public class LevelSwitcher : MonoBehaviour
         currentSceneObjects = new List<GameObject>();
 
         //Transition
-        screenCenter += Vector3.right * 100;
-        LeanTween.moveX(cam, screenCenter.x, 2.5f).setEase(LeanTweenType.easeInOutExpo);
+        screenCenter.position += Vector3.right * 100;
+        LeanTween.moveX(cam, screenCenter.position.x, 2.5f).setEase(LeanTweenType.easeInOutExpo);
 
         //Adding objects
-        Vector2 anchor = (Vector2)screenCenter + data.sunOffset;
+        Vector2 anchor = (Vector2)screenCenter.position + data.sunOffset;
         currentSceneObjects.Add(Instantiate(sunPrefab, anchor, Quaternion.identity));
 
         for(int i = 0; i < data.planets.Length; i++)
@@ -62,6 +62,8 @@ public class LevelSwitcher : MonoBehaviour
             //obj.GetComponent<Planetoid>().Launch(d.velocity);
             currentSceneObjects.Add(obj);
         }
+
+        PlanetoidManager.UpdateScene();
     }
 
     LevelData GenerateLevel()
