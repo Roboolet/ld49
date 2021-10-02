@@ -72,7 +72,7 @@ public class LevelSwitcher : MonoBehaviour
 
     IEnumerator CleanupScene(List<GameObject> obj)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         foreach(GameObject go in obj)
         {
             Destroy(go);
