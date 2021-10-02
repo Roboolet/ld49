@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: 147a563eeb378534c8ce590376843a3c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7935575514939524687
+    second: planetoids_0
+  - first:
+      213: -8631891993248061399
+    second: planetoids_1
+  - first:
+      213: 1519774982263149362
+    second: planetoids_2
+  - first:
+      213: -4556017236356109113
+    second: planetoids_3
+  - first:
+      213: 8975604596365075050
+    second: planetoids_4
+  - first:
+      213: 8487539339861207077
+    second: planetoids_5
+  - first:
+      213: -8673353499156603397
+    second: planetoids_6
+  - first:
+      213: -938764577634106763
+    second: planetoids_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,12 +65,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,9 +99,189 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: planetoids_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500.5
+        width: 500
+        height: 500.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f460248e2e3d02e60800000000000000
+      internalID: 7935575514939524687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetoids_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 500.5
+        width: 500
+        height: 500.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92829e247fb553880800000000000000
+      internalID: -8631891993248061399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetoids_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 500.5
+        width: 500
+        height: 500.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23312545b43571510800000000000000
+      internalID: 1519774982263149362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetoids_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 500.5
+        width: 500
+        height: 500.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ccef6c5676c5c0c0800000000000000
+      internalID: -4556017236356109113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetoids_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.5
+        width: 500
+        height: 500.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6224ba53d0cf8c70800000000000000
+      internalID: 8975604596365075050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetoids_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0.5
+        width: 500
+        height: 500.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 528a4998f0cc9c570800000000000000
+      internalID: 8487539339861207077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetoids_6
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0.5
+        width: 500
+        height: 500.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd116722fe02a780800000000000000
+      internalID: -8673353499156603397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetoids_7
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0.5
+        width: 500
+        height: 500.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57246662796d8f2f0800000000000000
+      internalID: -938764577634106763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
