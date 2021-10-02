@@ -35,4 +35,13 @@ public class PlanetoidManager : MonoBehaviour
 
         yield return SlowUpdate();
     }
+
+    private void OnDrawGizmos()
+    {
+        if (Application.isPlaying == false)
+        {
+            UpdateScene();
+            predictions = PlanetoidPhysics.PredictTrajectory2x(frames, scene);
+        }
+    }
 }

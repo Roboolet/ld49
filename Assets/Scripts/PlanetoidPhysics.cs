@@ -55,7 +55,7 @@ public static class PlanetoidPhysics
         // Loop over all planets in the scene:
         foreach (Planetoid p2 in px)
         {
-            if (p2.ID != id) // If they're not the same planet, Add its force to the sum.
+            if (p2.ID != id && p2.position != p) // If they're not the same planet, Add its force to the sum.
                 force += (p2.position - p).normalized * GetForceBetween(mass, p2.mass, Vector2.Distance(p2.position, p));
         }
 

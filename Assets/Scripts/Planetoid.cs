@@ -66,4 +66,14 @@ public class Planetoid : MonoBehaviour
         for (int i = 0; i < PlanetoidManager.predictions[ID].Length; i++)
             ren.SetPosition(i, PlanetoidManager.predictions[ID][i]);
     }
+
+    private void OnDrawGizmos()
+    {
+        if (Application.isPlaying == false && PlanetoidManager.predictions != null && PlanetoidManager.predictions.ContainsKey(ID))
+        {
+            Gizmos.color = Color.white;
+            for (int i = 0; i < PlanetoidManager.predictions[ID].Length - 1; i++)
+                Gizmos.DrawLine(PlanetoidManager.predictions[ID][i], PlanetoidManager.predictions[ID][i + 1]);
+        }
+    }
 }
