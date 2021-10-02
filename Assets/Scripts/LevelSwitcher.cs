@@ -5,13 +5,34 @@ using UnityEngine;
 public class LevelSwitcher : MonoBehaviour
 {
     [SerializeField] LevelData[] levels;
-    [SerializeField] Transform vcam;
 
     [Header("Prefabs")]
     [SerializeField] GameObject sunPrefab;
     [SerializeField] GameObject[] planetPrefab;
 
     List<GameObject> currentSceneObjects = new List<GameObject>();
+
+    GameObject cam;
+
+    Vector3 screenCenter;
+    int levelCurrent;
+    int counter;
+
+    private void Awake()
+    {
+        cam = Camera.main.gameObject;
+    }
+
+    private void Update()
+    {
+        //debug
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            LoadLevel(counter);
+            counter++;
+        }
+
+    }
 
     public void LoadLevel(int i)
     {
@@ -20,13 +41,18 @@ public class LevelSwitcher : MonoBehaviour
 
     void LoadLevel(LevelData data)
     {
+        //Initialize
         StartCoroutine(CleanupScene(currentSceneObjects));
         currentSceneObjects = new List<GameObject>();
 
-        vcam.position += Vector3.right * 50;
-        Vector2 anchor = (Vector2)vcam.position + data.sunOffset;
+        //Transition
+        screenCenter += Vector3.right * 100;
+        LeanTween.moveX(cam, screenCenter.x, 2.5f).setEase(LeanTweenType.easeInOutExpo);
 
+        //Adding objects
+        Vector2 anchor = (Vector2)screenCenter + data.sunOffset;
         currentSceneObjects.Add(Instantiate(sunPrefab, anchor, Quaternion.identity));
+
         for(int i = 0; i < data.planets.Length; i++)
         {
             PlanetData d = data.planets[i];
@@ -36,7 +62,6 @@ public class LevelSwitcher : MonoBehaviour
             //obj.GetComponent<Planetoid>().Launch(d.velocity);
             currentSceneObjects.Add(obj);
         }
-
     }
 
     LevelData GenerateLevel()
