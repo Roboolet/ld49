@@ -113,13 +113,17 @@ public static class PlanetoidPhysics
         // Collect all the records:
         for (int i = 0; i < records; i++)
         {
+            Vector2[] current_positions = px.Select(f => f.position).ToArray();
+
             // Loop over all planets in the scene:
             for (int j = 0; j < px.Length; j++)
             {
                 if (px[j].isStatic == false)
                 {
-                    px[j].velocity += GetSceneForce(px[j].position, px[j].mass, px[j].ID, px);
-                    px[j].transform.position += (Vector3)px[j].velocity;
+                    px[j].velocity += GetSceneForce(current_positions[j], px[j].mass, px[j].ID, px);
+                    // Check in case there are non numbers in the velocity.
+                    if (!float.IsNaN(px[j].velocity.x) && !float.IsNaN(px[j].velocity.y))
+                        px[j].transform.position += (Vector3)px[j].velocity;
                     record[px[j].ID][i] = px[j].position;
                 }
             }

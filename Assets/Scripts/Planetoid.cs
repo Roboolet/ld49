@@ -35,7 +35,9 @@ public class Planetoid : MonoBehaviour
         if (!isStatic)
         {
             velocity += PlanetoidPhysics.GetSceneForce(this, PlanetoidManager.scene);
-            transform.position += (Vector3)velocity;
+            // Check in case there are non numbers in the velocity.
+            if (!float.IsNaN(velocity.x) && !float.IsNaN(velocity.y))
+                transform.position += (Vector3)velocity;
         }
     }
 
@@ -74,8 +76,6 @@ public class Planetoid : MonoBehaviour
     private void OnDestroy()
     {
         if(lineInstance != null)
-        {
             Destroy(lineInstance);
-        }
     }
 }
