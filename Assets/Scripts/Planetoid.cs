@@ -29,18 +29,12 @@ public class Planetoid : MonoBehaviour
     [SerializeField] private GameObject line;
 
     private GameObject lineInstance;
-    private Planetoid[] scene;
-
-    private void Start()
-    {
-        scene = FindObjectsOfType<Planetoid>();
-    }
 
     private void FixedUpdate()
     {
         if (!isStatic)
         {
-            velocity += PlanetoidPhysics.GetSceneForce(this, scene);
+            velocity += PlanetoidPhysics.GetSceneForce(this, PlanetoidManager.scene);
             transform.position += (Vector3)velocity;
         }
     }
