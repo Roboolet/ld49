@@ -8,7 +8,7 @@ public class PlanetoidManager : MonoBehaviour
 
     public static Dictionary<int, Vector2[]> predictions;
     
-    private Planetoid[] scene;
+    private static Planetoid[] scene;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class PlanetoidManager : MonoBehaviour
     /// Should be called when the scene is updated.
     /// Will update the scene references.
     /// </summary>
-    public void UpdateScene() => scene = FindObjectsOfType<Planetoid>();
+    public static void UpdateScene() => scene = FindObjectsOfType<Planetoid>();
 
     private IEnumerator SlowUpdate()
     {
