@@ -59,7 +59,10 @@ public class LevelSwitcher : MonoBehaviour
             int rnd = Random.Range(0, planetPrefab.Length);
 
             GameObject obj = Instantiate(planetPrefab[rnd], anchor + d.position, Quaternion.identity);
-            obj.GetComponent<Planetoid>().velocity = d.velocity;
+            Planetoid p = obj.GetComponent<Planetoid>();
+            p.velocity = d.velocity;
+            p.mass = d.mass;
+
             currentSceneObjects.Add(obj);
         }
 
@@ -94,6 +97,6 @@ public struct LevelData
 [System.Serializable]
 public struct PlanetData
 {
-    public float radius;
+    public float radius, mass;
     public Vector2 position, velocity;
 }

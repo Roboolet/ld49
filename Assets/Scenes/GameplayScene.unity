@@ -177,7 +177,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 13
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -320,17 +320,31 @@ MonoBehaviour:
     sunRadius: 10
     planets:
     - radius: 2
+      mass: 100
       position: {x: 0, y: 5}
       velocity: {x: 0.08, y: 0}
   - sunOffset: {x: 0, y: 0}
     sunRadius: 10
     planets:
     - radius: 2
-      position: {x: 0, y: 8}
+      mass: 100
+      position: {x: 0, y: 6}
       velocity: {x: 0.08, y: 0}
     - radius: 2
+      mass: 100
       position: {x: 0, y: -4}
       velocity: {x: 0.08, y: 0}
+  - sunOffset: {x: 0, y: 0}
+    sunRadius: 10
+    planets:
+    - radius: 2
+      mass: 100
+      position: {x: 7.5, y: 0}
+      velocity: {x: 0, y: -0.08}
+    - radius: 2
+      mass: 20
+      position: {x: 9.9, y: 0}
+      velocity: {x: 0, y: -0.01}
   screenCenter: {fileID: 388674264}
   sunPrefab: {fileID: 6740708585030424438, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
   planetPrefab:
