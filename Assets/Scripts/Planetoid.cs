@@ -10,6 +10,11 @@ public class Planetoid : MonoBehaviour
     /// </summary>
     public bool isStatic;
 
+    /// <summary>
+    /// Whether this planetoid should interfere with the world.
+    /// </summary>
+    public bool isDisabled;
+
     [Header("Properties")]
     /// <summary>
     /// Mass of the planetoid.
