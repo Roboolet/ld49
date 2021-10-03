@@ -26,7 +26,7 @@ public class LaunchControl : MonoBehaviour
 
     private void Update()
     {
-        if (canLaunch)
+        if (canLaunch && !Menu.paused)
         {
             pltd.transform.position = launchPoint;
             pltd.isDisabled = true;
