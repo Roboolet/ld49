@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStatic: 1
   isDisabled: 0
-  mass: 500
+  mass: 5000
   velocity: {x: 0, y: 0}
   line: {fileID: 0}
 --- !u!114 &645007706777273807

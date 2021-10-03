@@ -10,6 +10,18 @@ public class PlanetoidManager : MonoBehaviour
     
     public static Planetoid[] scene;
 
+    static PlanetoidManager main;
+
+    private void Awake()
+    {
+        if (main == null)
+        {
+            DontDestroyOnLoad(this);
+            main = this;
+        }
+        else Destroy(gameObject);
+    }
+
     private void Start()
     {
         UpdateScene();
