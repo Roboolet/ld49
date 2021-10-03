@@ -39,7 +39,7 @@ public class LaunchControl : MonoBehaviour
 
             if (!Input.GetButton("Fire1"))
             {
-                launchPoint = CalculateLaunchPoint(Input.mousePosition);
+                launchPoint = CalculateLaunchPoint(Input.mousePosition) + (Vector2)transform.position;
                 //pltd.velocity = Vector2.zero;
             }
 

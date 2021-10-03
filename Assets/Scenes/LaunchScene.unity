@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 18
-  asteroidPrefab: {fileID: 713662593}
+  asteroidPrefab: {fileID: 1231775563109515685, guid: c6c99ca3d3e9bd342b4c08c91dc633e8, type: 3}
   psystem: {fileID: 79950372}
   canLaunch: 1
 --- !u!4 &79950370
@@ -5119,6 +5119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 0
+  isDisabled: 0
   mass: 50
   velocity: {x: 0.02, y: -0.04}
   line: {fileID: 3380079581997566063, guid: 52aead0b29f027143a82211f317e993d, type: 3}
@@ -5218,6 +5219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 0
+  isDisabled: 0
   mass: 50
   velocity: {x: -0.02, y: 0.04}
   line: {fileID: 3380079581997566063, guid: 52aead0b29f027143a82211f317e993d, type: 3}
