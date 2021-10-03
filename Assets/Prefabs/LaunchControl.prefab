@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 18
-  asteroidPrefab: {fileID: 1231775563109515685, guid: c6c99ca3d3e9bd342b4c08c91dc633e8, type: 3}
+  asteroidPrefab: {fileID: 1231775563109515685, guid: 6f837f0acf6dd2645b470fe61ed92db7, type: 3}
   psystem: {fileID: 3074553023729381032}
   canLaunch: 1
 --- !u!198 &3074553023729381032

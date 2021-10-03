@@ -7,6 +7,7 @@ public class LevelSwitcher : MonoBehaviour
     [SerializeField] LevelData[] levels;
     [SerializeField] Transform screenCenter;
     [SerializeField] LaunchControl control;
+    [SerializeField] AsteroidCatcher catcher;
 
     [Header("Prefabs")]
     [SerializeField] GameObject sunPrefab;
@@ -61,6 +62,7 @@ public class LevelSwitcher : MonoBehaviour
             currentSceneObjects.Add(obj);
         }
 
+        catcher.SetTrackedObjects(currentSceneObjects);
         PlanetoidManager.UpdateScene();
     }
 
@@ -77,6 +79,7 @@ public class LevelSwitcher : MonoBehaviour
 
     IEnumerator SceneTransition(List<GameObject> obj, int level)
     {
+        catcher.SetTrackedObjects(null);
         LeanTween.moveX(cam, screenCenter.position.x, 2.5f).setEase(LeanTweenType.easeInOutExpo);
 
         yield return new WaitForSeconds(1.2f);
@@ -86,9 +89,9 @@ public class LevelSwitcher : MonoBehaviour
         }
         control.NewTry();
         control.canLaunch = true;
+
         yield return new WaitForSeconds(0.15f);
         LoadLevel(level, screenCenter.position);
-        
     }
 }
 

@@ -305,7 +305,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 8
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -358,7 +358,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
+      scalar: 5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -999,7 +999,7 @@ ParticleSystem:
       speed:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 1
+        scalar: 0.3
         minScalar: 1
         maxCurve:
           serializedVersion: 2
@@ -1674,7 +1674,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -1943,7 +1943,7 @@ ParticleSystem:
     orbitalZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.02
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2207,7 +2207,7 @@ ParticleSystem:
         m_RotationOrder: 4
     speedModifier:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -2224,12 +2224,12 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
+          value: 0.010928988
+          inSlope: 0.06311487
+          outSlope: 0.06311487
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.25974023
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -2260,7 +2260,7 @@ ParticleSystem:
         m_RotationOrder: 4
     inWorldSpace: 0
   InheritVelocityModule:
-    enabled: 1
+    enabled: 0
     m_Mode: 0
     m_Curve:
       serializedVersion: 2
@@ -4940,6 +4940,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ceaf6d4299f2844af0603f5078dc1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sunCircle: 2.5
+  boundsCircle: 24
 --- !u!1 &140912542
 GameObject:
   m_ObjectHideFlags: 0
@@ -5171,6 +5173,7 @@ MonoBehaviour:
       velocity: {x: -0.02, y: 0.04}
   screenCenter: {fileID: 388674264}
   control: {fileID: 551156723}
+  catcher: {fileID: 92170376}
   sunPrefab: {fileID: 6740708585030424438, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
   planetPrefab:
   - {fileID: 1231775563109515685, guid: c6c99ca3d3e9bd342b4c08c91dc633e8, type: 3}

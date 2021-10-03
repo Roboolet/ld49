@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7487513061197329220}
   - component: {fileID: 6399924173897764142}
   m_Layer: 0
-  m_Name: Planetoid
-  m_TagString: Planet
+  m_Name: Asteroid
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8631891993248061399, guid: 147a563eeb378534c8ce590376843a3c, type: 3}
+  m_Sprite: {fileID: -8673353499156603397, guid: 147a563eeb378534c8ce590376843a3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

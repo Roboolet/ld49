@@ -86,6 +86,7 @@ public class LaunchControl : MonoBehaviour
     Vector2 CalculateLaunchPoint(Vector2 input)
     {
         Vector2 dir = (input - screenMiddle).normalized;
+        if (dir == Vector2.zero) dir = Vector2.left;
         return dir * distance;
     }
 }
