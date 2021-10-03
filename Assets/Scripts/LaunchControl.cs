@@ -13,12 +13,13 @@ public class LaunchControl : MonoBehaviour
     Vector2 screenMiddle;
     Vector2 launchPoint, launchAngle;
 
-    public bool canLaunch;
+    [HideInInspector] public bool canLaunch;
 
     private void Awake()
     {
         screenMiddle = new Vector2(Screen.width/2, Screen.height/2);
         NewTry();
+        canLaunch = false;
 
         var sh = psystem.shape;
         sh.radius = distance;

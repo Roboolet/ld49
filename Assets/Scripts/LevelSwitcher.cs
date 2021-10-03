@@ -19,7 +19,6 @@ public class LevelSwitcher : MonoBehaviour
     GameObject cam;
 
     int levelCurrent;
-    int counter;
 
     private void Awake()
     {
@@ -32,8 +31,7 @@ public class LevelSwitcher : MonoBehaviour
         //debug
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine("NextLevel");
-            counter++;
+            NextLevel();
         }
 
     }
@@ -65,6 +63,9 @@ public class LevelSwitcher : MonoBehaviour
         }
     }
 
+    public void NextLevel() => StartCoroutine(SwitchLevel(levelCurrent + 1));
+    public void PreviousLevel() => StartCoroutine(SwitchLevel(levelCurrent - 1));
+
     /*void LoadLevel(LevelData data, Vector2 center)
     {
         //Initialize
@@ -87,21 +88,26 @@ public class LevelSwitcher : MonoBehaviour
         }        
     }*/
 
-    IEnumerator NextLevel()
+    IEnumerator SwitchLevel(int i)
     {
-        screenCenter.position += Vector3.right * 200;
+        if (i > levelCurrent) screenCenter.position += Vector3.right * 200;
+        else screenCenter.position += -Vector3.right * 200;
+
         catcher.SetTrackedObjects(null);
         LeanTween.moveX(cam, screenCenter.position.x, 2.5f).setEase(LeanTweenType.easeInOutExpo);
 
         yield return new WaitForSeconds(1.2f);
         UnloadLevel(levelCurrent);
-        levelCurrent++;
+        levelCurrent = i;
 
-        control.NewTry();
-        control.canLaunch = true;
+        if (levelCurrent > 0)
+        {
+            control.NewTry();
+            control.canLaunch = true;
 
-        yield return new WaitForSeconds(0.15f);
-        LoadLevel(levelCurrent, screenCenter.position);
+            yield return new WaitForSeconds(0.15f);
+            LoadLevel(levelCurrent, screenCenter.position);
+        }
     }
 
 
