@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScoreTracker : MonoBehaviour
 {
     [SerializeField] Image forwardButtonImage;
+    [SerializeField] GameObject backButton;
     [SerializeField] LevelPoints[] levels;
     Dictionary<int, LevelPoints> levelPoints = new Dictionary<int, LevelPoints>();
 
@@ -24,7 +25,7 @@ public class ScoreTracker : MonoBehaviour
             {
                 if (_Score > 0)
                 {
-                    forwardButtonImage.fillAmount = _Score / levelPoints[currentLevel].pointsReq;
+                    forwardButtonImage.fillAmount = (float)_Score / (float)levelPoints[currentLevel].pointsReq;
 
                     if (_Score >= levelPoints[currentLevel].pointsReq) BeatLevel();
                     else forwardButton.interactable = false;
@@ -59,12 +60,21 @@ public class ScoreTracker : MonoBehaviour
     public void SetCurrentLevel(int i)
     {
         currentLevel = i;
-        if (i > 0) Score = 0;
+        if (i > 0)
+        {
+            Score = 0;
+            backButton.SetActive(true);
+        }
+        else
+        {
+            backButton.SetActive(false);
+        }
         
         if(levelPoints[i].beaten || i <= 0)
         {
             BeatLevel();
             Score = 999;
+            
         }
     }
 

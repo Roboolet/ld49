@@ -96,9 +96,9 @@ public class LevelSwitcher : MonoBehaviour
         UnloadLevel(levelCurrent);
         levelCurrent = i;
 
+        score.SetCurrentLevel(i);
         if (levelCurrent > 0)
         {
-            score.SetCurrentLevel(i);
             control.NewTry();
             control.canLaunch = true;
 
