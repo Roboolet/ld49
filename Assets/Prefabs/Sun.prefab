@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: -1941116152087202350, guid: 147a563eeb378534c8ce590376843a3c, type: 3}
   m_Color: {r: 0.9622642, g: 0.8327566, b: 0.23148806, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 1
+  isDisabled: 0
   mass: 500
   velocity: {x: 0, y: 0}
   line: {fileID: 0}
@@ -885,7 +886,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.3
+      value: 0.6
       mode: 0
       spread: 0
       speed:
