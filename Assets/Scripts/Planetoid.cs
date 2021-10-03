@@ -27,6 +27,11 @@ public class Planetoid : MonoBehaviour
     public Vector2 position => transform.position;
 
     /// <summary>
+    /// Radius of the planetoid.
+    /// </summary>
+    public float radius => transform.localScale.x;
+
+    /// <summary>
     /// Velocity of the planetoid.
     /// </summary>
     public Vector2 velocity;

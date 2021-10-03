@@ -222,6 +222,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6740708585030424392, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740708585030424392, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740708585030424392, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -261,9 +269,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6740708585030424393, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1519774982263149362, guid: 147a563eeb378534c8ce590376843a3c, type: 3}
     - target: {fileID: 6740708585030424438, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
       propertyPath: m_Name
       value: Sun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740708586698927949, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740708586698927949, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
@@ -298,6 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 0
+  isDisabled: 0
   mass: 1
   velocity: {x: 0, y: 0.01}
   line: {fileID: 3380079581997566063, guid: 52aead0b29f027143a82211f317e993d, type: 3}
@@ -360,7 +381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713662593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.52, y: -0.03, z: 0}
+  m_LocalPosition: {x: 19.45, y: -0.03, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -397,8 +418,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 0
+  isDisabled: 0
   mass: 50
-  velocity: {x: 0, y: 0.28}
+  velocity: {x: 0, y: 0.302}
   line: {fileID: 3380079581997566063, guid: 52aead0b29f027143a82211f317e993d, type: 3}
 --- !u!212 &993022007
 SpriteRenderer:
@@ -459,7 +481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993022005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 0, z: 0}
+  m_LocalPosition: {x: 6.79, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -496,6 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 0
+  isDisabled: 0
   mass: 100000
   velocity: {x: 0, y: 0.2}
   line: {fileID: 3380079581997566063, guid: 52aead0b29f027143a82211f317e993d, type: 3}
