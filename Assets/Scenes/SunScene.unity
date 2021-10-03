@@ -218,6 +218,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6740708585030424392, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740708585030424392, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740708585030424392, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -257,9 +265,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6740708585030424393, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1941116152087202350, guid: 147a563eeb378534c8ce590376843a3c, type: 3}
     - target: {fileID: 6740708585030424438, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
       propertyPath: m_Name
       value: Sun
       objectReference: {fileID: 0}
+    - target: {fileID: 6740708585440217350, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1941116152087202350, guid: 147a563eeb378534c8ce590376843a3c, type: 3}
+    - target: {fileID: 6740708585709396977, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1941116152087202350, guid: 147a563eeb378534c8ce590376843a3c, type: 3}
+    - target: {fileID: 6740708586698927948, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1941116152087202350, guid: 147a563eeb378534c8ce590376843a3c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22baf2ad87425bc4d976005a3968ea35, type: 3}
