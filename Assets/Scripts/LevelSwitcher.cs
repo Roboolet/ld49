@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSwitcher : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class LevelSwitcher : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main.gameObject;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Update()
@@ -30,18 +32,40 @@ public class LevelSwitcher : MonoBehaviour
         //debug
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            NextLevel();
+            StartCoroutine("NextLevel");
             counter++;
         }
 
     }
 
-    public void LoadLevel(int i, Vector2 center)
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        LoadLevel(levels[i], center);
+        Transform root = scene.GetRootGameObjects()[0].transform;
+        root.position = screenCenter.position;
+        foreach(Transform t in root)
+        {
+            currentSceneObjects.Add(t.gameObject);
+        }
+
+        catcher.SetTrackedObjects(currentSceneObjects);
+        PlanetoidManager.UpdateScene();
     }
 
-    void LoadLevel(LevelData data, Vector2 center)
+    public void LoadLevel(int i, Vector2 center)
+    {
+        SceneManager.LoadScene("L"+i, LoadSceneMode.Additive);
+    }
+
+    void UnloadLevel(int i)
+    {
+        if (SceneManager.GetSceneByName("L" + i).isLoaded)
+        {
+            currentSceneObjects = new List<GameObject>();
+            SceneManager.UnloadSceneAsync("L" + i);
+        }
+    }
+
+    /*void LoadLevel(LevelData data, Vector2 center)
     {
         //Initialize
         currentSceneObjects = new List<GameObject>();
@@ -60,38 +84,24 @@ public class LevelSwitcher : MonoBehaviour
             p.mass = d.mass;
 
             currentSceneObjects.Add(obj);
-        }
+        }        
+    }*/
 
-        catcher.SetTrackedObjects(currentSceneObjects);
-        PlanetoidManager.UpdateScene();
-    }
-
-    public void NextLevel()
+    IEnumerator NextLevel()
     {
-        if (!Menu.paused)
-        {
-            screenCenter.position += Vector3.right * 200;
-            StartCoroutine(SceneTransition(currentSceneObjects, levelCurrent));
-            //LoadLevel(levelCurrent, screenCenter.position);
-            levelCurrent++;
-        }
-    }
-
-    IEnumerator SceneTransition(List<GameObject> obj, int level)
-    {
+        screenCenter.position += Vector3.right * 200;
         catcher.SetTrackedObjects(null);
         LeanTween.moveX(cam, screenCenter.position.x, 2.5f).setEase(LeanTweenType.easeInOutExpo);
 
         yield return new WaitForSeconds(1.2f);
-        foreach(GameObject go in obj)
-        {
-            Destroy(go);
-        }
+        UnloadLevel(levelCurrent);
+        levelCurrent++;
+
         control.NewTry();
         control.canLaunch = true;
 
         yield return new WaitForSeconds(0.15f);
-        LoadLevel(level, screenCenter.position);
+        LoadLevel(levelCurrent, screenCenter.position);
     }
 }
 
