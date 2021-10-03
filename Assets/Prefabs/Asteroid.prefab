@@ -97,6 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStatic: 0
   isDisabled: 0
-  mass: 100
-  velocity: {x: 0, y: 0.02}
+  mass: 120
+  velocity: {x: 0, y: 0}
   line: {fileID: 3380079581997566063, guid: 52aead0b29f027143a82211f317e993d, type: 3}

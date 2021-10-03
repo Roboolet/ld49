@@ -68,7 +68,6 @@ public class LaunchControl : MonoBehaviour
         pltd = Instantiate(asteroidPrefab, Vector2.up * 100, Quaternion.identity).GetComponent<Planetoid>();
 
         canLaunch = true;
-        pltd.mass = 2500;
         pltd.velocity = Vector2.zero;
 
         PlanetoidManager.UpdateScene();
