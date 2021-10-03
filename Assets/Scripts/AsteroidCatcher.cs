@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class AsteroidCatcher : MonoBehaviour
 {
-    int score;
     List<GameObject> trackedObjects = new List<GameObject>();
     [SerializeField, Range(1, 30)] float sunCircle, boundsCircle;
+
+    [SerializeField] ScoreTracker score;
 
     private void Update()
     {
@@ -26,7 +27,7 @@ public class AsteroidCatcher : MonoBehaviour
 
     public void SetTrackedObjects(List<GameObject> list)
     {
-        score = 0;
+        score.ResetScore();
 
         if (list != null && list.Count > 0)
         {
@@ -56,7 +57,7 @@ public class AsteroidCatcher : MonoBehaviour
         trackedObjects.Remove(go);
         if (go.CompareTag("Planet"))
         {
-            score++;
+            score.Increment();
         }
         print("Destroyed " + go.name);
     }

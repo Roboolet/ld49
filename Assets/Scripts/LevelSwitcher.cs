@@ -5,14 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelSwitcher : MonoBehaviour
 {
-    [SerializeField] LevelData[] levels;
     [SerializeField] Transform screenCenter;
     [SerializeField] LaunchControl control;
     [SerializeField] AsteroidCatcher catcher;
-
-    [Header("Prefabs")]
-    [SerializeField] GameObject sunPrefab;
-    [SerializeField] GameObject[] planetPrefab;
+    [SerializeField] ScoreTracker score;
 
     List<GameObject> currentSceneObjects = new List<GameObject>();
 
@@ -102,6 +98,7 @@ public class LevelSwitcher : MonoBehaviour
 
         if (levelCurrent > 0)
         {
+            score.SetCurrentLevel(i);
             control.NewTry();
             control.canLaunch = true;
 
@@ -111,19 +108,4 @@ public class LevelSwitcher : MonoBehaviour
     }
 
 
-}
-
-[System.Serializable]
-public struct LevelData
-{
-    public float sunRadius;
-
-    public PlanetData[] planets;
-}
-
-[System.Serializable]
-public struct PlanetData
-{
-    public float radius, mass;
-    public Vector2 position, velocity;
 }
