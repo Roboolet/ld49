@@ -31,10 +31,11 @@ public class LaunchControl : MonoBehaviour
             pltd.transform.position = launchPoint;
             pltd.isDisabled = true;
 
+            if (!psystem.isPlaying) psystem.Play();
 
             if (Input.GetButtonUp("Fire1"))
             {
-                if(pltd.velocity.sqrMagnitude > 0.0005f)
+                if (pltd.velocity.sqrMagnitude > 0.0005f)
                     FireAsteroid();
                 else
                 {
@@ -55,6 +56,7 @@ public class LaunchControl : MonoBehaviour
             }
 
         }
+        else if (psystem.isPlaying) psystem.Stop();
 
         if (Input.GetKeyDown(KeyCode.A)) NewTry();
     }

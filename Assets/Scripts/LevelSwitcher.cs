@@ -6,6 +6,7 @@ public class LevelSwitcher : MonoBehaviour
 {
     [SerializeField] LevelData[] levels;
     [SerializeField] Transform screenCenter;
+    [SerializeField] LaunchControl control;
 
     [Header("Prefabs")]
     [SerializeField] GameObject sunPrefab;
@@ -42,11 +43,7 @@ public class LevelSwitcher : MonoBehaviour
     void LoadLevel(LevelData data, Vector2 center)
     {
         //Initialize
-        StartCoroutine(CleanupScene(currentSceneObjects));
         currentSceneObjects = new List<GameObject>();
-
-        //Transition        
-        LeanTween.moveX(cam, center.x, 2.5f).setEase(LeanTweenType.easeInOutExpo);
 
         //Adding objects
         currentSceneObjects.Add(Instantiate(sunPrefab, center, Quaternion.identity));
@@ -71,25 +68,27 @@ public class LevelSwitcher : MonoBehaviour
     {
         if (!Menu.paused)
         {
-            screenCenter.position += Vector3.right * 100;
-            LoadLevel(levelCurrent, screenCenter.position);
+            screenCenter.position += Vector3.right * 200;
+            StartCoroutine(SceneTransition(currentSceneObjects, levelCurrent));
+            //LoadLevel(levelCurrent, screenCenter.position);
             levelCurrent++;
         }
     }
 
-    LevelData GenerateLevel()
+    IEnumerator SceneTransition(List<GameObject> obj, int level)
     {
+        LeanTween.moveX(cam, screenCenter.position.x, 2.5f).setEase(LeanTweenType.easeInOutExpo);
 
-        return new LevelData();
-    }
-
-    IEnumerator CleanupScene(List<GameObject> obj)
-    {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.2f);
         foreach(GameObject go in obj)
         {
             Destroy(go);
         }
+        control.NewTry();
+        control.canLaunch = true;
+        yield return new WaitForSeconds(0.15f);
+        LoadLevel(level, screenCenter.position);
+        
     }
 }
 
