@@ -4,28 +4,31 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 7935575514939524687
-    second: planetoids_0
+    second: planetoids_lines
   - first:
       213: -8631891993248061399
-    second: planetoids_1
+    second: planetoids_craters
   - first:
       213: 1519774982263149362
-    second: planetoids_2
+    second: planetoids_slashes
   - first:
       213: -4556017236356109113
-    second: planetoids_3
+    second: planetoids_asteroid_1
   - first:
       213: 8975604596365075050
-    second: planetoids_4
+    second: planetoids_revene
   - first:
       213: 8487539339861207077
-    second: planetoids_5
+    second: planetoids_home
   - first:
       213: -8673353499156603397
-    second: planetoids_6
+    second: planetoids_asteroid_2
   - first:
       213: -938764577634106763
-    second: planetoids_7
+    second: planetoids_asteroid_3
+  - first:
+      213: -1941116152087202350
+    second: planetoids_sun
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,15 +118,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: planetoids_0
+      name: planetoids_lines
       rect:
         serializedVersion: 2
         x: 0
-        y: 500.5
+        y: 1000
         width: 500
-        height: 500.5
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,15 +139,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planetoids_1
+      name: planetoids_craters
       rect:
         serializedVersion: 2
         x: 500
-        y: 500.5
+        y: 1000
         width: 500
-        height: 500.5
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,15 +160,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planetoids_2
+      name: planetoids_slashes
       rect:
         serializedVersion: 2
         x: 1000
-        y: 500.5
+        y: 1000
         width: 500
-        height: 500.5
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,15 +181,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planetoids_3
+      name: planetoids_asteroid_1
       rect:
         serializedVersion: 2
         x: 1500
-        y: 500.5
+        y: 1000
         width: 500
-        height: 500.5
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -199,15 +202,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planetoids_4
+      name: planetoids_revene
       rect:
         serializedVersion: 2
         x: 0
-        y: 0.5
+        y: 500
         width: 500
-        height: 500.5
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,15 +223,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planetoids_5
+      name: planetoids_home
       rect:
         serializedVersion: 2
         x: 500
-        y: 0.5
+        y: 500
         width: 500
-        height: 500.5
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,15 +244,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planetoids_6
+      name: planetoids_asteroid_2
       rect:
         serializedVersion: 2
         x: 1000
-        y: 0.5
+        y: 500
         width: 500
-        height: 500.5
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,15 +265,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planetoids_7
+      name: planetoids_asteroid_3
       rect:
         serializedVersion: 2
         x: 1500
-        y: 0.5
+        y: 500
         width: 500
-        height: 500.5
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,6 +281,27 @@ TextureImporter:
       bones: []
       spriteID: 57246662796d8f2f0800000000000000
       internalID: -938764577634106763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planetoids_sun
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d5b117e425cf05e0800000000000000
+      internalID: -1941116152087202350
       vertices: []
       indices: 
       edges: []
