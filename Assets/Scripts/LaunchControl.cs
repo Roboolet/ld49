@@ -62,7 +62,7 @@ public class LaunchControl : MonoBehaviour
             {
                 launchAngle = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - launchPoint;
                 pltd.velocity = Vector2.ClampMagnitude(-launchAngle * 0.01f, 0.15f);
-                Time.timeScale = Mathf.Lerp(Time.timeScale, 0.4f, 0.1f);
+                Time.timeScale = Mathf.Lerp(Time.timeScale, 0.2f, 0.1f);
             }
 
         }
