@@ -64,7 +64,24 @@ public class Planetoid : MonoBehaviour
             return;
 
         if (lineInstance == null)
+        {
             lineInstance = Instantiate(line);
+            LineRenderer reninst = lineInstance.GetComponent<LineRenderer>();
+            Color planetcolor = GetComponent<SpriteRenderer>().color;
+            reninst.colorGradient = new Gradient()
+            {
+                colorKeys = new GradientColorKey[]
+                {
+                    new GradientColorKey(planetcolor, 0.0f),
+                    new GradientColorKey(planetcolor, 1.0f)
+                },
+                alphaKeys = new GradientAlphaKey[]
+                {
+                    new GradientAlphaKey(50.0f / 255.0f, 0.8f),
+                    new GradientAlphaKey(0.0f, 1.0f)
+                }
+            };
+        }
 
         LineRenderer ren = lineInstance.GetComponent<LineRenderer>();
         ren.positionCount = PlanetoidManager.predictions[ID].Length / 4;

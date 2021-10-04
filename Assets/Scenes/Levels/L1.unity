@@ -244,6 +244,18 @@ PrefabInstance:
       propertyPath: velocity.y
       value: 0.025
       objectReference: {fileID: 0}
+    - target: {fileID: 7487513061197329220, guid: c6c99ca3d3e9bd342b4c08c91dc633e8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.22264738
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487513061197329220, guid: c6c99ca3d3e9bd342b4c08c91dc633e8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5324733
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487513061197329220, guid: c6c99ca3d3e9bd342b4c08c91dc633e8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.745283
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6c99ca3d3e9bd342b4c08c91dc633e8, type: 3}
 --- !u!4 &825026938 stripped
