@@ -43,7 +43,7 @@ public class LaunchControl : MonoBehaviour
 
             if (Input.GetButtonUp("Fire1"))
             {
-                if (pltd.velocity.sqrMagnitude > 0.0005f)
+                if (pltd.velocity.sqrMagnitude > 0.00025f)
                     FireAsteroid();
                 else
                 {
