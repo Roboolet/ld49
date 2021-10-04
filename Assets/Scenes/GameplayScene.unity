@@ -15344,6 +15344,8 @@ MonoBehaviour:
     beaten: 0
   - pointsReq: 2
     beaten: 0
+  - pointsReq: 2
+    beaten: 0
   - pointsReq: 3
     beaten: 0
 --- !u!4 &533875887
