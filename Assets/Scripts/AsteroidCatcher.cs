@@ -5,8 +5,9 @@ using UnityEngine;
 public class AsteroidCatcher : MonoBehaviour
 {
     List<GameObject> trackedObjects = new List<GameObject>();
-    [SerializeField, Range(1, 30)] float sunCircle, boundsCircle;
+    [SerializeField, Range(1, 30)] float boundsCircle;
     [SerializeField] GameObject burnoutParticles;
+    public Transform sun;
 
     [SerializeField] ScoreTracker score;
 
@@ -20,7 +21,7 @@ public class AsteroidCatcher : MonoBehaviour
                 GameObject go = trackedObjects[i];
 
                 float dist = Vector2.Distance(transform.position, go.transform.position);
-                if (dist < sunCircle) OnSunEnter(go);
+                if (dist < sun.localScale.x) OnSunEnter(go);
                 else if (dist > boundsCircle) OnRadiusExit(go);
             }
         }

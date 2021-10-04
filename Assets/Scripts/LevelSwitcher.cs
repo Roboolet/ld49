@@ -40,6 +40,7 @@ public class LevelSwitcher : MonoBehaviour
         foreach(Transform t in root)
         {
             currentSceneObjects.Add(t.gameObject);
+            if (t.CompareTag("Sun")) catcher.sun = t;
         }
 
         catcher.SetTrackedObjects(currentSceneObjects);
