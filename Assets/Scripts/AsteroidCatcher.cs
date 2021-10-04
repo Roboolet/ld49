@@ -21,7 +21,7 @@ public class AsteroidCatcher : MonoBehaviour
                 GameObject go = trackedObjects[i];
 
                 float dist = Vector2.Distance(transform.position, go.transform.position);
-                if (dist < sun.localScale.x) OnSunEnter(go);
+                if (sun != null && dist < sun.localScale.x) OnSunEnter(go);
                 else if (dist > boundsCircle) OnRadiusExit(go);
             }
         }

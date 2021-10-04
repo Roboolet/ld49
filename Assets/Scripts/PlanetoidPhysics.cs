@@ -63,7 +63,7 @@ public static class PlanetoidPhysics
                 force += (p2.position - p).normalized * GetForceBetween(p2.mass, Vector2.Distance(p2.position, p));
             else if (p2.ID != id && Vector2.Distance(p2.position, p) <= p2.radius + radius && p2.isStatic == false) // If we hit another planet.
                 force = (p - p2.position).normalized * .1f;
-            else if (p2.ID != id && Vector2.Distance(p2.position, p) <= p2.radius + radius && p2.isStatic == true) // If we hit the sun (only for the prediction)
+            else if (p2.ID != id && Vector2.Distance(p2.position, p) <= p2.radius + radius -0.55f && p2.isStatic == true) // If we hit the sun (only for the prediction)
                 return -v;
         }
 
