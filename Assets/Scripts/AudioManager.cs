@@ -7,6 +7,19 @@ public class AudioManager : MonoBehaviour
 {
     public List<Sound> sounds;
 
+    float globalVolume = 1;
+    public float GlobalVolume
+    {
+        set
+        {
+            globalVolume = value;
+            foreach(Sound sound in sounds)
+            {
+                sound.source.volume = sound.volume * globalVolume;
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +27,7 @@ public class AudioManager : MonoBehaviour
         {
             sound.source = gameObject.AddComponent<AudioSource>();
             sound.source.clip = sound.clip;
-            sound.source.volume = sound.volume;
+            sound.source.volume = sound.volume * globalVolume;
             sound.source.loop = sound.loop;
 
             if (sound.playOnStart)

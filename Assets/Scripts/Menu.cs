@@ -18,19 +18,13 @@ public class Menu : MonoBehaviour
     {
         if (Input.GetButtonDown("Cancel") && !LeanTween.isTweening(cam))
         {
-            if (paused) Exit(); else Enter();
+            if (paused) MoveCam(0); else MoveCam(60);
+            paused = !paused;
         }
     }
 
-    public void Enter()
+    public void MoveCam(float y)
     {
-        paused = true;
-        LeanTween.moveY(cam, screenCenter.position.y + 24, 1.5f).setEaseInOutBack();
-    }
-
-    public void Exit()
-    {
-        paused = false;
-        LeanTween.moveY(cam, screenCenter.position.y, 1.5f).setEaseInOutBack();
+        LeanTween.moveY(cam, screenCenter.position.y + y, 1.5f).setEaseInOutBack();
     }
 }
