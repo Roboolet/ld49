@@ -44,7 +44,7 @@ public class Planetoid : MonoBehaviour
     {
         if (!isStatic && PlanetoidPhysics.physicsEnabled)
         {
-            velocity += PlanetoidPhysics.GetSceneForce(this, PlanetoidManager.scene);
+            velocity += PlanetoidPhysics.GetSceneForce(this, PlanetoidManager.scenario, PlanetoidManager.scene);
             // Check in case there are non numbers in the velocity.
             if (!float.IsNaN(velocity.x) && !float.IsNaN(velocity.y))
                 transform.position += (Vector3)velocity;
@@ -72,7 +72,8 @@ public class Planetoid : MonoBehaviour
         // Set the positions on the line:
         for (int i = 0; i < PlanetoidManager.predictions[ID].Length; i += 4)
         {
-            ren.SetPosition(i / 4, PlanetoidManager.predictions[ID][i]);
+            if (ren.positionCount > i / 4)
+                ren.SetPosition(i / 4, PlanetoidManager.predictions[ID][i]);
         }
     }
 

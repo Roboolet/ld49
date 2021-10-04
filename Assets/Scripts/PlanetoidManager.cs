@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlanetoidManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlanetoidManager : MonoBehaviour
     public static Dictionary<int, Vector2[]> predictions;
     
     public static Planetoid[] scene;
+    public static Vector2[] scenario;
 
     static PlanetoidManager main;
 
@@ -26,6 +28,12 @@ public class PlanetoidManager : MonoBehaviour
     {
         UpdateScene();
         StartCoroutine(SlowUpdate());
+    }
+
+    private void FixedUpdate()
+    {
+        scene = scene.Where(f => f != null).ToArray();
+        scenario = scene.Select(f => f.position).ToArray();
     }
 
     /// <summary>

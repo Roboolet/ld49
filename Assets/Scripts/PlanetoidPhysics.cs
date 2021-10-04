@@ -22,20 +22,22 @@ public static class PlanetoidPhysics
     /// <param name="p">The planetoid to calculate for.</param>
     /// <param name="px">All the planetoids in the scene.</param>
     /// <returns>The force to add to the velocity of the planetoid.</returns>
-    public static Vector2 GetSceneForce(Planetoid p, params Planetoid[] px)
+    public static Vector2 GetSceneForce(Planetoid p, Vector2[] ps, params Planetoid[] px)
     {
+        if (ps == null) return Vector2.zero;
+
         // Clear out any destroyed planetoids.
         px = px.Where(f => f != null).ToArray();
+        ps = ps.Where(f => f != null).ToArray();
 
         Vector2 force = Vector2.zero;
 
-        // Loop over all planets in the scene:
-        foreach (Planetoid p2 in px)
+        for (int i = 0; i < px.Length; i++)
         {
-            if (p2.ID != p.ID && Vector2.Distance(p2.position, p.position) > p2.radius + p.radius && p.isDisabled == false && p2.isDisabled == false) // If they're not the same planet, Add its force to the sum.
-                force += (p2.position - p.position).normalized * GetForceBetween(p2.mass, Vector2.Distance(p2.position, p.position));
-            else if (p2.ID != p.ID && Vector2.Distance(p2.position, p.position) <= p2.radius + p.radius && p.isDisabled == false && p2.isDisabled == false)
-                force = (p.position - p2.position).normalized * .1f;
+            if (px[i].ID != p.ID && Vector2.Distance(ps[i], p.position) > px[i].radius + p.radius && p.isDisabled == false && px[i].isDisabled == false) // If they're not the same planet, Add its force to the sum.
+                force += (ps[i] - p.position).normalized * GetForceBetween(px[i].mass, Vector2.Distance(ps[i], p.position));
+            else if (px[i].ID != p.ID && Vector2.Distance(ps[i], p.position) <= px[i].radius + p.radius && p.isDisabled == false && px[i].isDisabled == false && px[i].isStatic == false) // If we hit another planet.
+                force = (p.position - ps[i]).normalized * .1f;
         }
 
         return force;
@@ -47,7 +49,7 @@ public static class PlanetoidPhysics
     /// <param name="p">The planetoid to calculate for.</param>
     /// <param name="px">All the planetoids in the scene.</param>
     /// <returns>The force to add to the velocity of the planetoid.</returns>
-    public static Vector2 GetSceneForce(Vector2 p, float radius, int id, params Planetoid[] px)
+    public static Vector2 GetSceneForce(Vector2 p, Vector2 v, float radius, int id, params Planetoid[] px)
     {
         // Clear out any destroyed planetoids.
         px = px.Where(f => f != null).ToArray();
@@ -59,8 +61,10 @@ public static class PlanetoidPhysics
         {
             if (p2.ID != id && p2.position != p && Vector2.Distance(p2.position, p) > p2.radius + radius) // If they're not the same planet, Add its force to the sum.
                 force += (p2.position - p).normalized * GetForceBetween(p2.mass, Vector2.Distance(p2.position, p));
-            else if (p2.ID != id && Vector2.Distance(p2.position, p) <= p2.radius + radius)
+            else if (p2.ID != id && Vector2.Distance(p2.position, p) <= p2.radius + radius && p2.isStatic == false) // If we hit another planet.
                 force = (p - p2.position).normalized * .1f;
+            else if (p2.ID != id && Vector2.Distance(p2.position, p) <= p2.radius + radius && p2.isStatic == true) // If we hit the sun (only for the prediction)
+                return -v;
         }
 
         return force;
@@ -88,7 +92,7 @@ public static class PlanetoidPhysics
         // Collect all the records:
         for (int i = 0; i < records; i++)
         {
-            velocity += GetSceneForce(position, p.radius, p.ID, px);
+            velocity += GetSceneForce(position, velocity, p.radius, p.ID, px);
             position += velocity;
             record.Add(position);
         }
@@ -125,12 +129,18 @@ public static class PlanetoidPhysics
             {
                 if (px[j].isStatic == false)
                 {
-                    px[j].velocity += GetSceneForce(current_positions[j], px[j].radius, px[j].ID, px);
+                    px[j].velocity += GetSceneForce(px[j].position, px[j].velocity, px[j].radius, px[j].ID, px);
                     // Check in case there are non numbers in the velocity.
                     if (!float.IsNaN(px[j].velocity.x) && !float.IsNaN(px[j].velocity.y))
-                        px[j].transform.position += (Vector3)px[j].velocity;
-                    record[px[j].ID][i] = px[j].position;
+                        current_positions[j] += px[j].velocity;
+                    record[px[j].ID][i] = current_positions[j];
                 }
+            }
+
+            // Update the positions:
+            for (int j = 0; j < px.Length; j++)
+            {
+                px[j].transform.position = current_positions[j];
             }
         }
 
