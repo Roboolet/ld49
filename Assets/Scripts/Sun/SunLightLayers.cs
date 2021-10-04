@@ -50,10 +50,4 @@ public class SunLightLayers : MonoBehaviour
             layer.transform.localScale *= stepSize * i + transform.localScale.x;
         }
     }
-
-    // Update is called once per frame
-    private void FixedUpdate()
-    {
-
-    }
 }

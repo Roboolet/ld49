@@ -112,6 +112,8 @@ public class LaunchControl : MonoBehaviour
         Planetoid launched = Instantiate(asteroids[rnd], position, Quaternion.identity).GetComponent<Planetoid>();
         launched.velocity = Vector2.ClampMagnitude(angle, 0.2f);*/
 
+        FindObjectOfType<AudioManager>().PlayClip("Launch");
+
         pltd.isDisabled = false;
         canLaunch = false;
     }
