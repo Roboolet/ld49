@@ -43,7 +43,7 @@ public class LaunchControl : MonoBehaviour
 
             if (!psystem.isPlaying) psystem.Play();
 
-            if (Input.GetButtonUp("Fire1") && !EventSystem.current.IsPointerOverGameObject())
+            if (Input.GetButtonUp("Fire1") && !EventSystem.current.IsPointerOverGameObject() && !inMainMenu)
             {
                 if (pltd.velocity.sqrMagnitude > 0.00025f)
                     FireAsteroid();
