@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class LaunchControl : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class LaunchControl : MonoBehaviour
 
             if (!psystem.isPlaying) psystem.Play();
 
-            if (Input.GetButtonUp("Fire1"))
+            if (Input.GetButtonUp("Fire1") && !EventSystem.current.IsPointerOverGameObject())
             {
                 if (pltd.velocity.sqrMagnitude > 0.00025f)
                     FireAsteroid();

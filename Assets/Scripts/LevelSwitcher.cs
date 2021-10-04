@@ -109,7 +109,11 @@ public class LevelSwitcher : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
             LoadLevel(levelCurrent, screenCenter.position);
         }
-        else control.inMainMenu = true;
+        else
+        {
+            control.canLaunch = false;
+            control.inMainMenu = true;
+        }
 
         
     }
