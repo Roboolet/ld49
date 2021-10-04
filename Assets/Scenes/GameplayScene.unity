@@ -15884,15 +15884,15 @@ MonoBehaviour:
   - pointsReq: -1
     beaten: 1
   - pointsReq: 1
-    beaten: 0
+    beaten: 1
   - pointsReq: 2
-    beaten: 0
+    beaten: 1
   - pointsReq: 3
-    beaten: 0
+    beaten: 1
   - pointsReq: 2
-    beaten: 0
+    beaten: 1
   - pointsReq: 2
-    beaten: 0
+    beaten: 1
   - pointsReq: 3
     beaten: 0
   - pointsReq: 2
@@ -16897,20 +16897,52 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
+      propertyPath: sounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
       propertyPath: sounds.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 86f991b64b937694e827fffcc5c6c9e3, type: 3}
+      objectReference: {fileID: 8300000, guid: d294e391e27d9af4f9e68aec09e76d6c, type: 3}
     - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
       propertyPath: sounds.Array.data[1].loop
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
       propertyPath: sounds.Array.data[1].name
-      value: Explosion
+      value: Launch
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: bf5479841918fa243ac5a1c3ad9ce3ed, type: 3}
+    - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: Impact
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: bf5479841918fa243ac5a1c3ad9ce3ed, type: 3}
+    - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: Impact
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 0.1
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4980657170181064999, guid: 8e5173df0f4873f49921590f8ce43b98, type: 3}
       propertyPath: sounds.Array.data[1].playOnStart
