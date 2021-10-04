@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LaunchControl : MonoBehaviour
 {
     [SerializeField] float distance;
     [SerializeField] GameObject asteroidPrefab;
     [SerializeField] ParticleSystem psystem;
+    [SerializeField] Image restartButtonImage;
+    [SerializeField] Button restartButton;
 
     Planetoid pltd;
 
@@ -14,6 +17,7 @@ public class LaunchControl : MonoBehaviour
     Vector2 launchPoint, launchAngle;
 
     [HideInInspector] public bool canLaunch;
+    public bool inMainMenu;
 
     private void Awake()
     {
@@ -29,6 +33,9 @@ public class LaunchControl : MonoBehaviour
     {
         if (canLaunch && !Menu.paused)
         {
+            restartButtonImage.color = Color.Lerp(restartButtonImage.color, Color.clear, Time.deltaTime*2);
+            restartButton.interactable = false;
+
             pltd.transform.position = launchPoint;
             pltd.isDisabled = true;
 
@@ -57,7 +64,21 @@ public class LaunchControl : MonoBehaviour
             }
 
         }
-        else if (psystem.isPlaying) psystem.Stop();
+        else
+        {
+            if (psystem.isPlaying) psystem.Stop();
+
+            if (!inMainMenu)
+            {
+                restartButtonImage.color = Color.Lerp(restartButtonImage.color, Color.white, Time.deltaTime);
+                restartButton.interactable = true;
+            }
+            else
+            {
+                restartButtonImage.color = Color.Lerp(restartButtonImage.color, Color.clear, Time.deltaTime * 2);
+                restartButton.interactable = false;
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.A)) NewTry();
     }

@@ -47,7 +47,9 @@ public class LevelSwitcher : MonoBehaviour
 
     public void LoadLevel(int i, Vector2 center)
     {
-        SceneManager.LoadScene("L"+i, LoadSceneMode.Additive);
+
+        SceneManager.LoadScene("L" + i, LoadSceneMode.Additive);
+
     }
 
     void UnloadLevel(int i)
@@ -61,6 +63,7 @@ public class LevelSwitcher : MonoBehaviour
 
     public void NextLevel() => StartCoroutine(SwitchLevel(levelCurrent + 1));
     public void PreviousLevel() => StartCoroutine(SwitchLevel(levelCurrent - 1));
+    public void RestartLevel() => StartCoroutine("Restart");
 
     /*void LoadLevel(LevelData data, Vector2 center)
     {
@@ -97,6 +100,33 @@ public class LevelSwitcher : MonoBehaviour
         levelCurrent = i;
 
         score.SetCurrentLevel(i);
+        if (levelCurrent > 0)
+        {
+            control.NewTry();
+            control.canLaunch = true;
+            control.inMainMenu = false;
+
+            yield return new WaitForSeconds(0.15f);
+            LoadLevel(levelCurrent, screenCenter.position);
+        }
+        else control.inMainMenu = true;
+
+        
+    }
+
+    IEnumerator Restart()
+    {
+        LeanTween.moveY(cam, screenCenter.position.y - 100, 0.8f).setEaseInExpo();
+
+        yield return new WaitForSeconds(1);
+        catcher.SetTrackedObjects(null);
+        UnloadLevel(levelCurrent);
+
+        LeanTween.moveY(cam, screenCenter.position.y, 2f).setEaseOutExpo();
+
+        yield return new WaitForSeconds(0.15f);
+
+        score.SetCurrentLevel(levelCurrent);
         if (levelCurrent > 0)
         {
             control.NewTry();
