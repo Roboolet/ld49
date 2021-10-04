@@ -9848,7 +9848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ceaf6d4299f2844af0603f5078dc1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunCircle: 2.5
+  sunCircle: 2.9
   boundsCircle: 24
   burnoutParticles: {fileID: 3835599768789895398, guid: a21bb2d3517ed234f99a89c6f57d1bf6, type: 3}
   score: {fileID: 533875886}
