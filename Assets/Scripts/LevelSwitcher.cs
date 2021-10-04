@@ -28,7 +28,7 @@ public class LevelSwitcher : MonoBehaviour
         //debug
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            NextLevel();
+            //NextLevel();
         }
 
     }
