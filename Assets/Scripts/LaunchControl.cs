@@ -11,6 +11,7 @@ public class LaunchControl : MonoBehaviour
     [SerializeField] ParticleSystem psystem;
     [SerializeField] Image restartButtonImage;
     [SerializeField] Button restartButton;
+    [SerializeField] AsteroidCatcher catcher;
 
     Planetoid pltd;
 
@@ -90,8 +91,14 @@ public class LaunchControl : MonoBehaviour
 
     public void NewTry()
     {
-        if(pltd != null) Destroy(pltd.gameObject);
+
+        if (pltd != null)
+        {
+            catcher.RemoveTrackedObject(pltd.gameObject);
+            Destroy(pltd.gameObject);
+        }
         pltd = Instantiate(asteroidPrefab, Vector2.up * 100, Quaternion.identity).GetComponent<Planetoid>();
+        catcher.AddTrackedObject(pltd.gameObject);
 
         canLaunch = true;
         pltd.velocity = Vector2.zero;

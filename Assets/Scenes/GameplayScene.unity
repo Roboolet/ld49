@@ -9848,7 +9848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ceaf6d4299f2844af0603f5078dc1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunCircle: 3
+  sunCircle: 2.5
   boundsCircle: 24
   burnoutParticles: {fileID: 3835599768789895398, guid: a21bb2d3517ed234f99a89c6f57d1bf6, type: 3}
   score: {fileID: 533875886}
@@ -31818,6 +31818,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 388674264}
     m_Modifications:
+    - target: {fileID: 3074553023729381033, guid: 6e47397ae81371a4e87cd883d7434a66, type: 3}
+      propertyPath: catcher
+      value: 
+      objectReference: {fileID: 92170376}
     - target: {fileID: 3074553023729381033, guid: 6e47397ae81371a4e87cd883d7434a66, type: 3}
       propertyPath: canLaunch
       value: 0

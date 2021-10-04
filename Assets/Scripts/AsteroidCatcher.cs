@@ -13,7 +13,7 @@ public class AsteroidCatcher : MonoBehaviour
     private void Update()
     {
         //slow update
-        if(Time.frameCount % 6 == 0)
+        if(Time.frameCount % 4 == 0)
         {
             for(int i = 0; i <trackedObjects.Count; i++)
             {
@@ -41,6 +41,16 @@ public class AsteroidCatcher : MonoBehaviour
             }
         }
         else trackedObjects = new List<GameObject>();
+    }
+
+    public void AddTrackedObject(GameObject obj)
+    {
+        trackedObjects.Add(obj);
+    }
+
+    public void RemoveTrackedObject(GameObject obj)
+    {
+        if (trackedObjects.Contains(obj)) trackedObjects.Remove(obj);
     }
 
     void OnRadiusExit(GameObject go)
