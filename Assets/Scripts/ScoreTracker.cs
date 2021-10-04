@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreTracker : MonoBehaviour
 {
     [SerializeField] Image forwardButtonImage;
-    [SerializeField] GameObject backButton;
+    [SerializeField] GameObject[] backButtons;
     [SerializeField] LevelPoints[] levels;
     Dictionary<int, LevelPoints> levelPoints = new Dictionary<int, LevelPoints>();
 
@@ -63,11 +63,18 @@ public class ScoreTracker : MonoBehaviour
         if (i > 0)
         {
             Score = 0;
-            backButton.SetActive(true);
+            foreach (GameObject go in backButtons)
+            {
+                go.SetActive(true);
+            }
+           
         }
         else
         {
-            backButton.SetActive(false);
+            foreach (GameObject go in backButtons)
+            {
+                go.SetActive(false);
+            }
         }
         
         if(levelPoints[i].beaten || i <= 0)

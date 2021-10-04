@@ -16,11 +16,11 @@ public class Menu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel") && !LeanTween.isTweening(cam))
+        /*if (Input.GetButtonDown("Cancel") && !LeanTween.isTweening(cam))
         {
             if (paused) MoveCam(0); else MoveCam(60);
             paused = !paused;
-        }
+        }*/
     }
 
     public void MoveCam(float y)
