@@ -37,7 +37,10 @@ public static class PlanetoidPhysics
             if (px[i].ID != p.ID && Vector2.Distance(ps[i], p.position) > px[i].radius + p.radius && p.isDisabled == false && px[i].isDisabled == false) // If they're not the same planet, Add its force to the sum.
                 force += (ps[i] - p.position).normalized * GetForceBetween(px[i].mass, Vector2.Distance(ps[i], p.position));
             else if (px[i].ID != p.ID && Vector2.Distance(ps[i], p.position) <= px[i].radius + p.radius && p.isDisabled == false && px[i].isDisabled == false && px[i].isStatic == false) // If we hit another planet.
+            {
                 force = (p.position - ps[i]).normalized * .1f;
+                GameObject.FindObjectOfType<AudioManager>().PlayClip("Impact");
+            }
         }
 
         return force;
