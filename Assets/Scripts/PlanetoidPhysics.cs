@@ -6,6 +6,7 @@ public static class PlanetoidPhysics
 {
     /// Universal Gravitational Constant
     public const float G = 0.0000006674f;
+    public static bool physicsEnabled = true;
 
     /// <summary>
     /// Get the magnitude of the force between two planetary bodies.

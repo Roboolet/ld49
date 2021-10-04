@@ -42,7 +42,7 @@ public class Planetoid : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isStatic)
+        if (!isStatic && PlanetoidPhysics.physicsEnabled)
         {
             velocity += PlanetoidPhysics.GetSceneForce(this, PlanetoidManager.scene);
             // Check in case there are non numbers in the velocity.

@@ -56,14 +56,14 @@ public class LaunchControl : MonoBehaviour
             {
                 launchPoint = CalculateLaunchPoint(Input.mousePosition) + (Vector2)transform.position;
                 //pltd.velocity = Vector2.zero;
-                Time.timeScale = 1;
+                PlanetoidPhysics.physicsEnabled = true;
             }
 
             else
             {
                 launchAngle = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - launchPoint;
                 pltd.velocity = Vector2.ClampMagnitude(-launchAngle * 0.01f, 0.15f);
-                Time.timeScale = Mathf.Lerp(Time.timeScale, 0.2f, 0.1f);
+                PlanetoidPhysics.physicsEnabled = false;
             }
 
         }
