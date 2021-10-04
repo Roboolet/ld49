@@ -15899,6 +15899,8 @@ MonoBehaviour:
     beaten: 0
   - pointsReq: 4
     beaten: 0
+  - pointsReq: 999
+    beaten: 0
 --- !u!4 &533875887
 Transform:
   m_ObjectHideFlags: 0
