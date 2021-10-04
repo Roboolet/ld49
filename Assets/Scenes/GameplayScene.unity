@@ -15342,6 +15342,10 @@ MonoBehaviour:
     beaten: 0
   - pointsReq: 3
     beaten: 0
+  - pointsReq: 2
+    beaten: 0
+  - pointsReq: 3
+    beaten: 0
 --- !u!4 &533875887
 Transform:
   m_ObjectHideFlags: 0
@@ -21194,7 +21198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880f5858382088b42b643c3bc3b284d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frames: 300
+  frames: 450
 --- !u!4 &1754424240
 Transform:
   m_ObjectHideFlags: 0

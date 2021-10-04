@@ -55,17 +55,21 @@ public class LaunchControl : MonoBehaviour
             {
                 launchPoint = CalculateLaunchPoint(Input.mousePosition) + (Vector2)transform.position;
                 //pltd.velocity = Vector2.zero;
+                Time.timeScale = 1;
             }
 
             else
             {
                 launchAngle = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - launchPoint;
                 pltd.velocity = Vector2.ClampMagnitude(-launchAngle * 0.01f, 0.15f);
+                Time.timeScale = Mathf.Lerp(Time.timeScale, 0.4f, 0.1f);
             }
 
         }
         else
         {
+            Time.timeScale = 1;
+
             if (psystem.isPlaying) psystem.Stop();
 
             if (!inMainMenu)
