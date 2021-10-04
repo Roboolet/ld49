@@ -15884,15 +15884,15 @@ MonoBehaviour:
   - pointsReq: -1
     beaten: 1
   - pointsReq: 1
-    beaten: 1
+    beaten: 0
   - pointsReq: 2
-    beaten: 1
+    beaten: 0
   - pointsReq: 3
-    beaten: 1
+    beaten: 0
   - pointsReq: 2
-    beaten: 1
+    beaten: 0
   - pointsReq: 2
-    beaten: 1
+    beaten: 0
   - pointsReq: 3
     beaten: 0
   - pointsReq: 2
