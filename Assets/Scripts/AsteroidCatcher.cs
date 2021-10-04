@@ -6,6 +6,7 @@ public class AsteroidCatcher : MonoBehaviour
 {
     List<GameObject> trackedObjects = new List<GameObject>();
     [SerializeField, Range(1, 30)] float sunCircle, boundsCircle;
+    [SerializeField] GameObject burnoutParticles;
 
     [SerializeField] ScoreTracker score;
 
@@ -50,6 +51,8 @@ public class AsteroidCatcher : MonoBehaviour
     void OnSunEnter(GameObject go)
     {
         DestroyListItem(go);
+        Destroy(go);
+        Instantiate(burnoutParticles, go.transform.position, Quaternion.identity);
     }
 
     void DestroyListItem(GameObject go)
@@ -59,6 +62,5 @@ public class AsteroidCatcher : MonoBehaviour
         {
             score.Increment();
         }
-        print("Destroyed " + go.name);
     }
 }
