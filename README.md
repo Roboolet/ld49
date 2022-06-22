@@ -15,7 +15,7 @@
 </h3>
 
 ### Ludemdare 49
-We made this game for the Ludemdare 49 in 3 days. The theme of Ludemdare 49 was *Unstable* so our minds were directed to an unstable solarsystem. This is the game we made in those 3 days and we finished 39th out of the 2204 total submisions.
+We made this game for the Ludemdare 49 gamejam in 3 days. The theme of Ludemdare 49 was *Unstable* so our minds were directed to an unstable solarsystem. This is the game we made in those 3 days and in the end we finished 39th out of the 2204 total submisions.
 
 <br>
 
