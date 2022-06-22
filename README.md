@@ -1,6 +1,6 @@
 <h1 align="center">
     <div align="center">
-        <img Height=138 src="https://img.itch.zone/aW1nLzcxMzE2OTEuanBn/original/5QXOaW.jpg"> 
+        <img Height=110 src="https://img.itch.zone/aW1nLzcxMzE2OTEuanBn/original/5QXOaW.jpg"> 
     </div>
 </h1>
 
@@ -10,7 +10,7 @@
       ·
       <a href="https://ldjam.com/events/ludum-dare/49/rogue-planets">ludumdare-page</a>
       ·
-      <a>build-download</a>
+      <a href="https://github.com/Roboolet/ld49/releases/tag/v1.0.0">build-download</a>
     </div>
 </h3>
 
